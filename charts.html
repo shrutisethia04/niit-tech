@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<title>CanvasJS Chart jQuery Plugin</title>
+  <script src="lib/jquery.js"></script>
+<script src="lib/jquery.canvasjs.min.js"></script>
+<script type="text/javascript">
+$(function () {
+    
+    
+    $.ajax({
+        
+        url:'https://www.quandl.com/api/v3/datasets/OPEC/ORB.json?api_key=Dcc_DsJPtNhAHL5ssNUt',
+        method:"get",
+        success:function(response){
+            var arr=[]
+           
+            $.each(response.dataset.data,function(key,val){
+                var d = new Date(val[0]);                
+                arr.push( {x :new Date(1900+d.getYear(),d.getMonth(),d.getDate()) ,y:val[1] } )
+            })
+            console.log(arr)
+            var options = {
+		exportEnabled: true,
+                animationEnabled: true,
+		title: {
+			text: "Exporting Chart as Image"
+		},
+		data: [
+            {
+                type:'area',
+                dataPoints:arr
+            }
+        ]
+	};
+
+	$("#chartContainer").CanvasJSChart(options);
+            
+            
+            
+        }
+        
+    })
+
+	//Better to construct options first and then pass it as a parameter
+	
+
+});
+</script>
+</head>
+<body>
+<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+</body>
+
+</html>
