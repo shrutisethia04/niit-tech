@@ -17,7 +17,7 @@
                 <span class="icon-bar"></span>
               </button>
 
-              <a class="navbar-brand" href="#">WonderTrip</a>
+              <a class="navbar-brand" href="#">WanderTrip</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -29,13 +29,7 @@
         </div><!-- /.container-fluid -->
         </nav>
 
-        <ul class="nav nav-tabs">
-        <li  ng-class="{active:tab==1}" role="presentation"><a data-toggle="tab" ng-click="tab = 1" href="#/airline">Airlines</a></li>
-        <li  ng-class="{active:tab==2}" role="presentation"><a data-toggle="tab" ng-click="tab = 2" href="#/flight">Flights</a></li>
-        <li  ng-class="{active:tab==3}" role="presentation"><a data-toggle="tab" ng-click="tab = 3" href="#/city">City</a></li>
-        <li  ng-class="{active:tab==4}" role="presentation"><a data-toggle="tab" ng-click="tab = 4" href="#/route">Route</a></li>
-        </ul>
-
+       
         <div ng-view></div>
 
     </div>
@@ -64,6 +58,11 @@
                         .when('/route',{
                         templateUrl:'partial/route.html',
                         controller:'routeController'
+                        })
+                        .when('/airlineDetails',{
+                        templateUrl:'partial/airlinesData.html',
+                        controller:'airlineController'
+                        
                         })
                         .otherwise({redirectTo:'/airline'})
             
