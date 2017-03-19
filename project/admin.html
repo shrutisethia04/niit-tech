@@ -64,6 +64,11 @@
                         controller:'airlineController'
                         
                         })
+                        .when('/flightDetails',{
+                        templateUrl:'partial/flightsData.html',
+                        controller:'flightController'
+                
+                        })
                         .otherwise({redirectTo:'/airline'})
             
             
